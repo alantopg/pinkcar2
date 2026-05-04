@@ -1027,137 +1027,337 @@ body::before{
         <div class="hero__orbit"></div>
         <div class="hero__orbit"></div>
         <div class="hero__orbit"></div>
-        <svg class="hero__visual-svg" viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+        <svg class="hero__visual-svg" viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="bodyHeroTop" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2c2c38"/>
-              <stop offset="50%" stop-color="#1d1d28"/>
-              <stop offset="100%" stop-color="#0c0c12"/>
+            <!-- кузов: лак с переливом -->
+            <linearGradient id="hLacquer" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#42424f"/>
+              <stop offset="22%" stop-color="#2c2c38"/>
+              <stop offset="60%" stop-color="#16161e"/>
+              <stop offset="100%" stop-color="#06060a"/>
             </linearGradient>
-            <linearGradient id="bodyHeroBottom" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#181820"/>
-              <stop offset="100%" stop-color="#08080c"/>
+            <linearGradient id="hLacquerSide" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1f1f2a"/>
+              <stop offset="50%" stop-color="#13131c"/>
+              <stop offset="100%" stop-color="#04040a"/>
             </linearGradient>
-            <linearGradient id="glassHero" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="rgba(180,210,240,.25)"/>
-              <stop offset="100%" stop-color="rgba(80,110,150,.05)"/>
+            <!-- хайлайт (отражение неба на капоте) -->
+            <linearGradient id="hHighlight" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(255,255,255,.18)"/>
+              <stop offset="60%" stop-color="rgba(255,255,255,0)"/>
             </linearGradient>
-            <radialGradient id="rimHero" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#3a3a45"/>
-              <stop offset="60%" stop-color="#1a1a22"/>
-              <stop offset="100%" stop-color="#0a0a10"/>
+            <!-- розовый отблеск от пола -->
+            <linearGradient id="hPinkGlow" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(255,45,122,0)"/>
+              <stop offset="100%" stop-color="rgba(255,45,122,.45)"/>
+            </linearGradient>
+            <!-- стекло -->
+            <linearGradient id="hGlass" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(220,235,250,.42)"/>
+              <stop offset="55%" stop-color="rgba(120,160,210,.18)"/>
+              <stop offset="100%" stop-color="rgba(40,70,110,.06)"/>
+            </linearGradient>
+            <!-- свечение фары -->
+            <radialGradient id="hHeadGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(255,255,220,1)"/>
+              <stop offset="35%" stop-color="rgba(255,220,140,.85)"/>
+              <stop offset="70%" stop-color="rgba(255,160,60,.3)"/>
+              <stop offset="100%" stop-color="rgba(255,120,40,0)"/>
             </radialGradient>
+            <!-- свечение задней оптики -->
+            <radialGradient id="hRearGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(255,80,80,.95)"/>
+              <stop offset="100%" stop-color="rgba(255,30,30,0)"/>
+            </radialGradient>
+            <!-- диск с глубиной -->
+            <radialGradient id="hRimDeep" cx="50%" cy="50%" r="55%">
+              <stop offset="0%" stop-color="#4a4a55"/>
+              <stop offset="40%" stop-color="#2a2a35"/>
+              <stop offset="75%" stop-color="#0e0e16"/>
+              <stop offset="100%" stop-color="#020206"/>
+            </radialGradient>
+            <radialGradient id="hRimRing" cx="50%" cy="50%" r="55%">
+              <stop offset="60%" stop-color="rgba(255,255,255,0)"/>
+              <stop offset="85%" stop-color="rgba(255,45,122,.5)"/>
+              <stop offset="100%" stop-color="rgba(255,45,122,0)"/>
+            </radialGradient>
+            <!-- свечение для filter -->
+            <filter id="hLightBlur" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="3"/>
+            </filter>
+            <filter id="hSoftBlur" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="6"/>
+            </filter>
           </defs>
-          <!-- тень -->
-          <ellipse cx="300" cy="335" rx="220" ry="12" fill="rgba(0,0,0,.55)"/>
-          <ellipse cx="300" cy="335" rx="180" ry="6" fill="rgba(0,0,0,.4)"/>
 
-          <!-- основной кузов: премиум седан/купе сбоку -->
-          <!-- низ (пороги) -->
-          <path d="M 75 295 C 75 305 80 312 90 314 L 510 314 C 520 312 525 305 525 295 L 525 280 L 75 280 Z"
-                fill="url(#bodyHeroBottom)"/>
-          <!-- верх (кузов с капотом, стеклом, крышей, багажником) -->
-          <path d="M 75 280
-                   C 75 270 78 258 88 252
-                   L 110 246
-                   C 125 244 140 240 158 235
-                   L 215 222
-                   C 228 218 240 215 252 209
-                   C 268 200 282 188 295 175
-                   L 320 158
-                   C 332 152 345 148 360 147
-                   L 420 147
-                   C 438 148 452 153 463 162
-                   L 488 192
-                   C 498 202 508 213 515 225
-                   C 521 236 525 250 525 262
-                   L 525 280
+          <!-- ОТРАЖЕНИЕ НА ПОЛУ -->
+          <ellipse cx="360" cy="372" rx="290" ry="14" fill="rgba(255,45,122,.18)" filter="url(#hSoftBlur)"/>
+          <ellipse cx="360" cy="368" rx="240" ry="10" fill="rgba(0,0,0,.7)"/>
+
+          <!-- НИЖНЯЯ ТЕНЬ ПОД КУЗОВОМ -->
+          <path d="M 70 320 L 650 320 L 660 340 L 60 340 Z" fill="rgba(0,0,0,.6)" filter="url(#hSoftBlur)"/>
+
+          <!-- =============== КУЗОВ =============== -->
+          <!-- сторона (нижняя часть, темнее) -->
+          <path d="M 70 272
+                   C 68 286 70 302 78 312
+                   L 88 322
+                   C 106 326 130 326 152 322
+                   L 168 318
+                   C 186 320 200 322 220 318
+                   L 240 316
+                   C 268 318 296 318 320 316
+                   L 360 314
+                   C 392 314 420 316 448 318
+                   L 470 318
+                   C 498 322 528 322 552 318
+                   L 568 316
+                   C 590 326 614 326 632 322
+                   L 642 312
+                   C 650 302 652 286 650 272
                    Z"
-                fill="url(#bodyHeroTop)" stroke="rgba(255,45,122,.18)" stroke-width="1"/>
+                fill="url(#hLacquerSide)"/>
 
+          <!-- ОСНОВНОЙ ВЕРХ КУЗОВА (капот → стекло → крыша → корма) -->
+          <path d="M 70 272
+                   C 68 252 76 232 92 220
+                   L 116 208
+                   C 138 200 162 192 188 184
+                   L 240 168
+                   C 256 162 270 154 282 142
+                   L 304 122
+                   C 320 110 338 102 358 98
+                   L 446 96
+                   C 470 100 490 110 506 124
+                   L 540 152
+                   C 558 168 580 180 604 188
+                   L 624 196
+                   C 638 204 648 216 652 232
+                   C 654 244 654 258 650 272
+                   Z"
+                fill="url(#hLacquer)" stroke="rgba(255,45,122,.18)" stroke-width=".8"/>
+
+          <!-- ХАЙЛАЙТ НА КАПОТЕ И КРЫШЕ (отражение неба) -->
+          <path d="M 88 232
+                   C 130 218 200 198 252 178
+                   L 290 158
+                   C 310 144 332 132 358 124
+                   L 446 122
+                   C 466 126 484 134 498 146
+                   L 524 172
+                   L 510 178
+                   C 490 168 462 158 432 156
+                   L 366 158
+                   C 342 162 318 174 296 188
+                   L 264 208
+                   C 226 222 162 244 100 256 Z"
+                fill="url(#hHighlight)" opacity=".7"/>
+
+          <!-- РОЗОВЫЙ UNDERGLOW снизу -->
+          <path d="M 80 304 L 642 304 L 632 322 C 614 326 590 326 568 318 L 552 318 C 528 322 498 322 470 318 L 448 318 C 420 316 392 314 360 314 L 320 316 C 296 318 268 318 240 316 L 220 318 C 200 322 186 320 168 318 L 152 322 C 130 326 106 326 88 322 Z"
+                fill="url(#hPinkGlow)" opacity=".5"/>
+
+          <!-- =============== ОКНА =============== -->
           <!-- лобовое стекло -->
-          <path d="M 308 178 C 320 167 333 160 348 158 L 415 158 C 430 160 442 168 450 178 L 460 220 L 305 220 Z"
-                fill="url(#glassHero)" stroke="rgba(255,45,122,.18)" stroke-width=".8"/>
-          <!-- заднее стекло (купе-стиль — сливается с крышей) -->
-          <path d="M 220 218 C 232 210 248 200 264 192 L 295 175 L 305 220 Z"
-                fill="url(#glassHero)" opacity=".7"/>
+          <path d="M 312 132
+                   C 326 120 344 110 364 106
+                   L 432 104
+                   C 450 108 466 116 478 130
+                   L 502 162
+                   L 308 182 Z"
+                fill="url(#hGlass)" stroke="rgba(255,45,122,.16)" stroke-width=".7"/>
+          <!-- блик на лобовом -->
+          <path d="M 320 132 C 350 116 400 108 460 116" stroke="rgba(255,255,255,.32)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
 
-          <!-- стойка C (между окнами и багажником) — лёгкое затенение -->
-          <path d="M 220 220 L 218 256 L 175 256 L 215 222 Z" fill="rgba(0,0,0,.35)" opacity=".7"/>
+          <!-- стойка А (передняя, тонкая) -->
+          <path d="M 308 182 L 312 132 L 320 132 L 318 182 Z" fill="rgba(0,0,0,.55)"/>
 
-          <!-- линия двери -->
-          <line x1="310" y1="225" x2="310" y2="280" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-          <!-- ручка -->
-          <rect x="345" y="255" width="42" height="4" rx="2" fill="rgba(255,45,122,.45)"/>
+          <!-- боковое окно (длинное) -->
+          <path d="M 232 192
+                   L 308 182
+                   L 502 162
+                   L 524 174
+                   L 510 200
+                   C 470 198 430 198 390 200
+                   L 320 208
+                   C 290 212 260 212 240 210 Z"
+                fill="url(#hGlass)" opacity=".85" stroke="rgba(255,45,122,.14)" stroke-width=".6"/>
 
-          <!-- характерная линия (chrome strip) -->
-          <path d="M 90 268 L 510 268" stroke="rgba(255,45,122,.4)" stroke-width="1" opacity=".6"/>
-          <path d="M 92 252 C 200 248 380 248 508 254" stroke="rgba(255,255,255,.06)" stroke-width="1" fill="none"/>
+          <!-- стойка C (массивная, тёмная) -->
+          <path d="M 240 192 L 252 178 L 232 192 L 222 224 L 240 222 Z" fill="rgba(0,0,0,.6)"/>
 
-          <!-- передняя фара (узкая, "адаптивная") -->
-          <path d="M 78 252 L 92 248 L 105 250 L 105 258 L 92 262 L 78 260 Z"
-                fill="rgba(255,210,120,.7)" stroke="rgba(255,210,120,.5)" stroke-width=".5"/>
-          <ellipse cx="91" cy="255" rx="10" ry="3" fill="rgba(255,255,200,.9)"/>
-          <!-- решётка -->
-          <path d="M 78 268 L 105 268 L 100 280 L 78 280 Z" fill="#0a0a10" stroke="rgba(255,45,122,.25)" stroke-width=".8"/>
-          <line x1="80" y1="272" x2="102" y2="272" stroke="rgba(255,45,122,.2)" stroke-width=".5"/>
-          <line x1="80" y1="276" x2="101" y2="276" stroke="rgba(255,45,122,.2)" stroke-width=".5"/>
+          <!-- хром-рамка вокруг окон -->
+          <path d="M 232 192 L 308 182 L 312 132 C 326 120 344 110 364 106 L 432 104 C 450 108 466 116 478 130 L 502 162 L 524 174"
+                stroke="rgba(255,255,255,.28)" stroke-width="1.2" fill="none"/>
 
-          <!-- задний фонарь -->
-          <path d="M 495 248 L 522 250 L 522 264 L 495 262 Z" fill="rgba(255,80,80,.6)" stroke="rgba(255,80,80,.4)" stroke-width=".5"/>
-          <!-- задний бампер деталь -->
-          <rect x="498" y="280" width="20" height="8" rx="1" fill="#0a0a10" opacity=".6"/>
+          <!-- =============== ЛИНИИ ДВЕРЕЙ =============== -->
+          <line x1="332" y1="220" x2="328" y2="312" stroke="rgba(0,0,0,.4)" stroke-width="1.2"/>
+          <line x1="332" y1="220" x2="328" y2="312" stroke="rgba(255,255,255,.05)" stroke-width=".5"/>
+          <!-- character line (грань кузова) -->
+          <path d="M 90 248 C 220 240 480 240 624 248" stroke="rgba(255,255,255,.08)" stroke-width="1" fill="none"/>
+          <path d="M 92 290 C 220 286 480 286 622 290" stroke="rgba(255,45,122,.18)" stroke-width=".7" fill="none"/>
 
-          <!-- блик на капоте -->
-          <path d="M 110 250 C 200 240 380 240 480 250" stroke="rgba(255,255,255,.08)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- ручки дверей (хром) -->
+          <rect x="226" y="262" width="42" height="4" rx="2" fill="rgba(220,225,235,.7)"/>
+          <rect x="226" y="262" width="42" height="2" rx="1" fill="rgba(255,255,255,.4)"/>
+          <rect x="386" y="262" width="42" height="4" rx="2" fill="rgba(220,225,235,.7)"/>
+          <rect x="386" y="262" width="42" height="2" rx="1" fill="rgba(255,255,255,.4)"/>
 
-          <!-- колёсные арки (затенение) -->
-          <ellipse cx="160" cy="298" rx="58" ry="22" fill="#000" opacity=".55"/>
-          <ellipse cx="440" cy="298" rx="58" ry="22" fill="#000" opacity=".55"/>
+          <!-- =============== ПЕРЕДНЯЯ ОПТИКА =============== -->
+          <!-- внешний "корпус" фары -->
+          <path d="M 70 248
+                   C 78 244 92 240 106 240
+                   L 124 244
+                   C 130 246 134 250 134 256
+                   L 134 268
+                   C 130 274 122 276 110 276
+                   L 88 274
+                   C 76 272 70 266 70 260 Z"
+                fill="rgba(20,20,28,.9)" stroke="rgba(255,210,120,.45)" stroke-width=".7"/>
+          <!-- основная "глазница" -->
+          <ellipse cx="105" cy="258" rx="22" ry="6" fill="url(#hHeadGlow)"/>
+          <!-- LED-полоска "ресничка" сверху -->
+          <path d="M 72 244 C 92 240 116 238 134 244" stroke="rgba(255,45,122,.85)" stroke-width="2.2" fill="none" stroke-linecap="round" filter="url(#hLightBlur)"/>
+          <path d="M 72 244 C 92 240 116 238 134 244" stroke="rgba(255,180,210,.95)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <!-- блик-точка света -->
+          <circle cx="98" cy="256" r="3" fill="rgba(255,255,255,1)"/>
+          <ellipse cx="105" cy="258" rx="40" ry="10" fill="url(#hHeadGlow)" opacity=".4" filter="url(#hSoftBlur)"/>
 
-          <!-- ПЕРЕДНЕЕ КОЛЕСО -->
-          <circle cx="160" cy="298" r="50" fill="#040406"/>
-          <circle cx="160" cy="298" r="46" fill="#0a0a10" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-          <circle cx="160" cy="298" r="33" fill="url(#rimHero)" stroke="rgba(255,255,255,.12)" stroke-width=".8"/>
-          <!-- 5 спиц -->
-          <g stroke="#2a2a35" stroke-width="3.5" stroke-linecap="round">
-            <line x1="160" y1="298" x2="160" y2="270"/>
-            <line x1="160" y1="298" x2="187" y2="306"/>
-            <line x1="160" y1="298" x2="177" y2="324"/>
-            <line x1="160" y1="298" x2="143" y2="324"/>
-            <line x1="160" y1="298" x2="133" y2="306"/>
+          <!-- =============== РЕШЁТКА =============== -->
+          <path d="M 72 280 L 134 280 L 130 304 L 78 308 C 74 308 72 304 72 300 Z"
+                fill="#0a0a14" stroke="rgba(255,45,122,.35)" stroke-width=".8"/>
+          <line x1="76" y1="286" x2="130" y2="284" stroke="rgba(255,45,122,.28)" stroke-width=".7"/>
+          <line x1="78" y1="292" x2="130" y2="290" stroke="rgba(255,45,122,.28)" stroke-width=".7"/>
+          <line x1="80" y1="298" x2="129" y2="296" stroke="rgba(255,45,122,.28)" stroke-width=".7"/>
+
+          <!-- =============== ЗАДНИЙ ФОНАРЬ =============== -->
+          <path d="M 612 252
+                   L 648 252
+                   C 652 254 654 258 654 262
+                   L 654 270
+                   C 654 274 652 278 648 278
+                   L 612 276 Z"
+                fill="rgba(40,12,18,.9)" stroke="rgba(255,80,80,.5)" stroke-width=".7"/>
+          <ellipse cx="630" cy="264" rx="20" ry="5" fill="url(#hRearGlow)"/>
+          <ellipse cx="630" cy="264" rx="32" ry="7" fill="url(#hRearGlow)" opacity=".5" filter="url(#hSoftBlur)"/>
+
+          <!-- задний выхлоп (две трубы) -->
+          <ellipse cx="624" cy="316" rx="6" ry="3" fill="#0a0a10" stroke="rgba(220,225,235,.4)" stroke-width=".5"/>
+          <ellipse cx="640" cy="316" rx="6" ry="3" fill="#0a0a10" stroke="rgba(220,225,235,.4)" stroke-width=".5"/>
+
+          <!-- зеркало -->
+          <path d="M 244 132 L 232 124 C 226 124 222 128 222 134 L 224 144 L 240 148 Z" fill="#1a1a22" stroke="rgba(255,45,122,.4)" stroke-width=".7"/>
+          <ellipse cx="232" cy="138" rx="6" ry="4" fill="rgba(180,210,240,.5)"/>
+
+          <!-- =============== КОЛЁСНЫЕ АРКИ =============== -->
+          <path d="M 100 320
+                   C 100 282 130 256 168 256
+                   C 206 256 236 282 236 320
+                   L 100 320 Z" fill="#04040a"/>
+          <path d="M 442 320
+                   C 442 282 472 256 510 256
+                   C 548 256 578 282 578 320
+                   L 442 320 Z" fill="#04040a"/>
+
+          <!-- ====== ПЕРЕДНЕЕ КОЛЕСО ====== -->
+          <circle cx="168" cy="320" r="58" fill="#020204"/>
+          <!-- покрышка -->
+          <circle cx="168" cy="320" r="56" fill="#0a0a10"/>
+          <!-- протектор -->
+          <circle cx="168" cy="320" r="53" fill="none" stroke="rgba(255,255,255,.05)" stroke-width=".7" stroke-dasharray="3 4"/>
+          <!-- глянцевая боковина -->
+          <circle cx="168" cy="320" r="50" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+          <!-- наружный обод диска -->
+          <circle cx="168" cy="320" r="44" fill="url(#hRimDeep)"/>
+          <!-- розовое свечение от обода -->
+          <circle cx="168" cy="320" r="44" fill="url(#hRimRing)"/>
+          <!-- внутренний обод (хром-блик сверху) -->
+          <path d="M 124 320 A 44 44 0 0 1 212 320" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1.2"/>
+          <!-- 10 тонких спиц -->
+          <g stroke="#3a3a45" stroke-width="2.8" stroke-linecap="round" fill="none">
+            <line x1="168" y1="320" x2="168" y2="280"/>
+            <line x1="168" y1="320" x2="192" y2="288"/>
+            <line x1="168" y1="320" x2="208" y2="320"/>
+            <line x1="168" y1="320" x2="192" y2="352"/>
+            <line x1="168" y1="320" x2="168" y2="360"/>
+            <line x1="168" y1="320" x2="144" y2="352"/>
+            <line x1="168" y1="320" x2="128" y2="320"/>
+            <line x1="168" y1="320" x2="144" y2="288"/>
           </g>
-          <!-- спицы поверх — розовая обводка -->
-          <g stroke="rgba(255,45,122,.35)" stroke-width="1.5" stroke-linecap="round" fill="none">
-            <line x1="160" y1="298" x2="160" y2="270"/>
-            <line x1="160" y1="298" x2="187" y2="306"/>
-            <line x1="160" y1="298" x2="177" y2="324"/>
-            <line x1="160" y1="298" x2="143" y2="324"/>
-            <line x1="160" y1="298" x2="133" y2="306"/>
+          <!-- хром на спицах -->
+          <g stroke="rgba(255,255,255,.2)" stroke-width="1" stroke-linecap="round" fill="none">
+            <line x1="168" y1="320" x2="168" y2="282"/>
+            <line x1="168" y1="320" x2="192" y2="290"/>
+            <line x1="168" y1="320" x2="206" y2="320"/>
+            <line x1="168" y1="320" x2="192" y2="350"/>
+            <line x1="168" y1="320" x2="168" y2="358"/>
+            <line x1="168" y1="320" x2="144" y2="350"/>
+            <line x1="168" y1="320" x2="130" y2="320"/>
+            <line x1="168" y1="320" x2="144" y2="290"/>
           </g>
-          <circle cx="160" cy="298" r="9" fill="#1a1a22" stroke="rgba(255,45,122,.5)" stroke-width="1"/>
-          <circle cx="160" cy="298" r="3" fill="rgba(255,45,122,.7)"/>
+          <!-- розовая точка на спицах -->
+          <g stroke="rgba(255,45,122,.5)" stroke-width=".8" stroke-linecap="round" fill="none">
+            <line x1="168" y1="320" x2="168" y2="284"/>
+            <line x1="168" y1="320" x2="190" y2="292"/>
+            <line x1="168" y1="320" x2="204" y2="320"/>
+            <line x1="168" y1="320" x2="190" y2="348"/>
+            <line x1="168" y1="320" x2="168" y2="356"/>
+            <line x1="168" y1="320" x2="146" y2="348"/>
+            <line x1="168" y1="320" x2="132" y2="320"/>
+            <line x1="168" y1="320" x2="146" y2="292"/>
+          </g>
+          <!-- ступица -->
+          <circle cx="168" cy="320" r="11" fill="#1a1a26" stroke="rgba(255,255,255,.18)" stroke-width=".8"/>
+          <circle cx="168" cy="320" r="6" fill="#0a0a14" stroke="rgba(255,45,122,.6)" stroke-width=".7"/>
+          <circle cx="168" cy="320" r="2.5" fill="rgba(255,45,122,1)"/>
+          <!-- блик на ступице -->
+          <circle cx="166" cy="318" r="1.5" fill="rgba(255,255,255,.7)"/>
 
-          <!-- ЗАДНЕЕ КОЛЕСО -->
-          <circle cx="440" cy="298" r="50" fill="#040406"/>
-          <circle cx="440" cy="298" r="46" fill="#0a0a10" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-          <circle cx="440" cy="298" r="33" fill="url(#rimHero)" stroke="rgba(255,255,255,.12)" stroke-width=".8"/>
-          <g stroke="#2a2a35" stroke-width="3.5" stroke-linecap="round">
-            <line x1="440" y1="298" x2="440" y2="270"/>
-            <line x1="440" y1="298" x2="467" y2="306"/>
-            <line x1="440" y1="298" x2="457" y2="324"/>
-            <line x1="440" y1="298" x2="423" y2="324"/>
-            <line x1="440" y1="298" x2="413" y2="306"/>
+          <!-- ====== ЗАДНЕЕ КОЛЕСО ====== -->
+          <circle cx="510" cy="320" r="58" fill="#020204"/>
+          <circle cx="510" cy="320" r="56" fill="#0a0a10"/>
+          <circle cx="510" cy="320" r="53" fill="none" stroke="rgba(255,255,255,.05)" stroke-width=".7" stroke-dasharray="3 4"/>
+          <circle cx="510" cy="320" r="50" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+          <circle cx="510" cy="320" r="44" fill="url(#hRimDeep)"/>
+          <circle cx="510" cy="320" r="44" fill="url(#hRimRing)"/>
+          <path d="M 466 320 A 44 44 0 0 1 554 320" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1.2"/>
+          <g stroke="#3a3a45" stroke-width="2.8" stroke-linecap="round" fill="none">
+            <line x1="510" y1="320" x2="510" y2="280"/>
+            <line x1="510" y1="320" x2="534" y2="288"/>
+            <line x1="510" y1="320" x2="550" y2="320"/>
+            <line x1="510" y1="320" x2="534" y2="352"/>
+            <line x1="510" y1="320" x2="510" y2="360"/>
+            <line x1="510" y1="320" x2="486" y2="352"/>
+            <line x1="510" y1="320" x2="470" y2="320"/>
+            <line x1="510" y1="320" x2="486" y2="288"/>
           </g>
-          <g stroke="rgba(255,45,122,.35)" stroke-width="1.5" stroke-linecap="round" fill="none">
-            <line x1="440" y1="298" x2="440" y2="270"/>
-            <line x1="440" y1="298" x2="467" y2="306"/>
-            <line x1="440" y1="298" x2="457" y2="324"/>
-            <line x1="440" y1="298" x2="423" y2="324"/>
-            <line x1="440" y1="298" x2="413" y2="306"/>
+          <g stroke="rgba(255,255,255,.2)" stroke-width="1" stroke-linecap="round" fill="none">
+            <line x1="510" y1="320" x2="510" y2="282"/>
+            <line x1="510" y1="320" x2="534" y2="290"/>
+            <line x1="510" y1="320" x2="548" y2="320"/>
+            <line x1="510" y1="320" x2="534" y2="350"/>
+            <line x1="510" y1="320" x2="510" y2="358"/>
+            <line x1="510" y1="320" x2="486" y2="350"/>
+            <line x1="510" y1="320" x2="472" y2="320"/>
+            <line x1="510" y1="320" x2="486" y2="290"/>
           </g>
-          <circle cx="440" cy="298" r="9" fill="#1a1a22" stroke="rgba(255,45,122,.5)" stroke-width="1"/>
-          <circle cx="440" cy="298" r="3" fill="rgba(255,45,122,.7)"/>
+          <g stroke="rgba(255,45,122,.5)" stroke-width=".8" stroke-linecap="round" fill="none">
+            <line x1="510" y1="320" x2="510" y2="284"/>
+            <line x1="510" y1="320" x2="532" y2="292"/>
+            <line x1="510" y1="320" x2="546" y2="320"/>
+            <line x1="510" y1="320" x2="532" y2="348"/>
+            <line x1="510" y1="320" x2="510" y2="356"/>
+            <line x1="510" y1="320" x2="488" y2="348"/>
+            <line x1="510" y1="320" x2="474" y2="320"/>
+            <line x1="510" y1="320" x2="488" y2="292"/>
+          </g>
+          <circle cx="510" cy="320" r="11" fill="#1a1a26" stroke="rgba(255,255,255,.18)" stroke-width=".8"/>
+          <circle cx="510" cy="320" r="6" fill="#0a0a14" stroke="rgba(255,45,122,.6)" stroke-width=".7"/>
+          <circle cx="510" cy="320" r="2.5" fill="rgba(255,45,122,1)"/>
+          <circle cx="508" cy="318" r="1.5" fill="rgba(255,255,255,.7)"/>
+
+          <!-- =============== ТОРМОЗНЫЕ ДИСКИ (видимые за спицами) =============== -->
+          <!-- (подсветка ярче за дисками) -->
         </svg>
       </div>
     </div>
@@ -1188,177 +1388,342 @@ body::before{
         <!-- ВИД СБОКУ — премиум седан -->
         <svg class="studio__svg" data-angle="side" viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="bSideTop" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2c2c38"/>
-              <stop offset="50%" stop-color="#1d1d28"/>
-              <stop offset="100%" stop-color="#0c0c12"/>
-            </linearGradient>
-            <linearGradient id="bSideLow" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#15151c"/>
+            <linearGradient id="sLacquer" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#42424f"/>
+              <stop offset="22%" stop-color="#2c2c38"/>
+              <stop offset="60%" stop-color="#16161e"/>
               <stop offset="100%" stop-color="#06060a"/>
             </linearGradient>
-            <linearGradient id="glassSide" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="rgba(180,210,240,.28)"/>
-              <stop offset="100%" stop-color="rgba(80,110,150,.05)"/>
+            <linearGradient id="sLacquerSide" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1f1f2a"/>
+              <stop offset="50%" stop-color="#13131c"/>
+              <stop offset="100%" stop-color="#04040a"/>
             </linearGradient>
-            <radialGradient id="rimSide" cx="50%" cy="50%" r="55%">
-              <stop offset="0%" stop-color="#3a3a45"/>
-              <stop offset="55%" stop-color="#1a1a22"/>
-              <stop offset="100%" stop-color="#06060a"/>
+            <linearGradient id="sHighlight" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(255,255,255,.16)"/>
+              <stop offset="60%" stop-color="rgba(255,255,255,0)"/>
+            </linearGradient>
+            <linearGradient id="sPinkGlow" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(255,45,122,0)"/>
+              <stop offset="100%" stop-color="rgba(255,45,122,.45)"/>
+            </linearGradient>
+            <linearGradient id="sGlass" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(220,235,250,.42)"/>
+              <stop offset="55%" stop-color="rgba(120,160,210,.18)"/>
+              <stop offset="100%" stop-color="rgba(40,70,110,.06)"/>
+            </linearGradient>
+            <radialGradient id="sHeadGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(255,255,220,1)"/>
+              <stop offset="35%" stop-color="rgba(255,220,140,.85)"/>
+              <stop offset="70%" stop-color="rgba(255,160,60,.3)"/>
+              <stop offset="100%" stop-color="rgba(255,120,40,0)"/>
             </radialGradient>
-            <radialGradient id="lightFront" cx="30%" cy="50%" r="80%">
-              <stop offset="0%" stop-color="rgba(255,250,200,.95)"/>
-              <stop offset="100%" stop-color="rgba(255,200,80,.3)"/>
+            <radialGradient id="sRearGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(255,80,80,.95)"/>
+              <stop offset="100%" stop-color="rgba(255,30,30,0)"/>
             </radialGradient>
+            <radialGradient id="sRimDeep" cx="50%" cy="50%" r="55%">
+              <stop offset="0%" stop-color="#4a4a55"/>
+              <stop offset="40%" stop-color="#2a2a35"/>
+              <stop offset="75%" stop-color="#0e0e16"/>
+              <stop offset="100%" stop-color="#020206"/>
+            </radialGradient>
+            <radialGradient id="sRimRing" cx="50%" cy="50%" r="55%">
+              <stop offset="60%" stop-color="rgba(255,255,255,0)"/>
+              <stop offset="85%" stop-color="rgba(255,45,122,.5)"/>
+              <stop offset="100%" stop-color="rgba(255,45,122,0)"/>
+            </radialGradient>
+            <filter id="sLightBlur" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="3"/>
+            </filter>
+            <filter id="sSoftBlur" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="6"/>
+            </filter>
           </defs>
 
-          <!-- тень под машиной -->
-          <ellipse cx="400" cy="416" rx="290" ry="10" class="car-shadow"/>
-          <ellipse cx="400" cy="416" rx="240" ry="5" fill="rgba(0,0,0,.45)"/>
+          <!-- ОТРАЖЕНИЕ НА ПОЛУ -->
+          <ellipse cx="400" cy="426" rx="320" ry="14" fill="rgba(255,45,122,.18)" filter="url(#sSoftBlur)"/>
+          <ellipse cx="400" cy="420" rx="280" ry="9" fill="rgba(0,0,0,.7)"/>
 
-          <!-- НИЖНЯЯ ЧАСТЬ КУЗОВА (пороги, низ) -->
-          <path d="M 80 340
-                   C 80 350 88 358 100 360
-                   L 720 360
-                   C 730 358 738 350 738 340
-                   L 738 305
-                   L 80 305 Z"
-                fill="url(#bSideLow)"/>
-
-          <!-- ОСНОВНОЙ СИЛУЭТ -->
-          <path d="M 80 305
-                   C 80 290 84 274 92 264
-                   L 110 252
-                   C 122 248 138 244 158 240
-                   L 222 230
-                   C 240 226 256 220 270 211
-                   L 305 188
-                   C 322 178 338 172 357 168
-                   L 460 158
-                   C 482 159 502 167 518 180
-                   L 555 215
-                   C 575 232 592 244 614 252
-                   L 680 264
-                   C 695 268 708 274 718 282
-                   C 728 290 735 298 738 305
+          <!-- ============= КУЗОВ ============= -->
+          <!-- нижняя часть (тёмная сторона) -->
+          <path d="M 78 300
+                   C 76 320 80 340 92 352
+                   L 110 366
+                   C 138 372 178 372 210 366
+                   L 240 360
+                   C 268 364 296 366 326 364
+                   L 380 360
+                   C 420 360 460 362 498 364
+                   L 540 366
+                   C 572 370 608 370 638 364
+                   L 670 358
+                   C 692 364 718 366 738 360
+                   L 750 348
+                   C 760 332 762 314 758 296
                    Z"
-                fill="url(#bSideTop)" stroke="rgba(255,45,122,.2)" stroke-width="1"/>
+                fill="url(#sLacquerSide)"/>
 
-          <!-- ОКНА: лобовое + переднее боковое -->
-          <path d="M 312 195
-                   C 322 184 336 175 352 173
-                   L 442 168
-                   C 454 169 462 175 467 184
-                   L 478 230
-                   L 305 230 Z"
-                fill="url(#glassSide)" stroke="rgba(255,45,122,.18)" stroke-width=".8"/>
+          <!-- ОСНОВНОЙ ВЕРХ КУЗОВА -->
+          <path d="M 78 300
+                   C 76 270 86 240 106 220
+                   L 138 200
+                   C 168 188 200 178 234 168
+                   L 296 150
+                   C 320 140 340 128 358 110
+                   L 384 88
+                   C 404 76 426 68 452 64
+                   L 562 62
+                   C 590 66 614 78 632 96
+                   L 668 132
+                   C 690 152 716 168 744 178
+                   L 754 184
+                   C 760 196 762 212 762 230
+                   C 762 252 760 276 758 296
+                   Z"
+                fill="url(#sLacquer)" stroke="rgba(255,45,122,.18)" stroke-width=".8"/>
 
-          <!-- стойка B (между передней и задней дверьми) -->
-          <line x1="395" y1="172" x2="395" y2="230" stroke="rgba(0,0,0,.5)" stroke-width="3"/>
+          <!-- ХАЙЛАЙТ НА КАПОТЕ И КРЫШЕ -->
+          <path d="M 100 244
+                   C 156 218 244 182 308 156
+                   L 360 122
+                   C 386 100 416 88 452 84
+                   L 562 82
+                   C 588 86 612 96 628 110
+                   L 656 140
+                   L 632 152
+                   C 612 132 580 116 548 110
+                   L 460 110
+                   C 432 114 406 124 380 138
+                   L 332 166
+                   C 274 192 184 232 110 268 Z"
+                fill="url(#sHighlight)" opacity=".7"/>
+
+          <!-- РОЗОВЫЙ UNDERGLOW -->
+          <path d="M 88 340 L 758 340 L 750 360 L 92 360 Z" fill="url(#sPinkGlow)" opacity=".55"/>
+
+          <!-- ============= ОКНА ============= -->
+          <!-- лобовое стекло -->
+          <path d="M 392 100
+                   C 412 86 434 78 456 76
+                   L 552 76
+                   C 574 80 592 90 606 106
+                   L 632 142
+                   L 388 156 Z"
+                fill="url(#sGlass)" stroke="rgba(255,45,122,.16)" stroke-width=".7"/>
+          <!-- блик на лобовом -->
+          <path d="M 404 102 C 440 86 500 80 580 92" stroke="rgba(255,255,255,.32)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <!-- стойка А (тонкая) -->
+          <path d="M 388 156 L 392 100 L 402 100 L 398 156 Z" fill="rgba(0,0,0,.55)"/>
+
+          <!-- переднее боковое окно -->
+          <path d="M 296 168
+                   L 388 156
+                   L 480 150
+                   L 482 196
+                   L 296 200 Z"
+                fill="url(#sGlass)" opacity=".88" stroke="rgba(255,45,122,.14)" stroke-width=".6"/>
+
+          <!-- стойка B -->
+          <path d="M 482 152 L 482 196 L 488 196 L 488 152 Z" fill="rgba(0,0,0,.6)"/>
 
           <!-- заднее боковое + заднее стекло -->
-          <path d="M 478 230
-                   L 467 184
-                   L 504 184
-                   C 514 188 522 198 528 208
-                   L 553 230 Z"
-                fill="url(#glassSide)" stroke="rgba(255,45,122,.18)" stroke-width=".8"/>
+          <path d="M 488 152
+                   L 632 142
+                   C 644 144 652 152 658 162
+                   L 668 196
+                   L 488 196 Z"
+                fill="url(#sGlass)" opacity=".88" stroke="rgba(255,45,122,.14)" stroke-width=".6"/>
 
-          <!-- стойка C (массивная) -->
-          <path d="M 553 230 L 528 208 C 524 198 524 195 528 188 L 545 195 L 575 230 Z"
-                fill="rgba(0,0,0,.5)"/>
+          <!-- стойка C (массивная, fastback) -->
+          <path d="M 296 168 L 308 154 L 296 200 Z" fill="rgba(0,0,0,.6)"/>
+          <path d="M 668 196 L 658 162 C 656 156 656 152 658 148 L 678 158 L 692 196 Z" fill="rgba(0,0,0,.55)"/>
 
-          <!-- хром-полоса вокруг окон -->
-          <path d="M 312 195 C 322 184 336 175 352 173 L 504 184 C 514 188 522 198 528 208"
-                fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+          <!-- хром-рамка вокруг окон -->
+          <path d="M 296 200 L 296 168 L 388 156 L 392 100 C 412 86 434 78 456 76 L 552 76 C 574 80 592 90 606 106 L 632 142 L 658 162 L 668 196"
+                stroke="rgba(255,255,255,.28)" stroke-width="1.3" fill="none"/>
 
-          <!-- линии дверей -->
-          <line x1="305" y1="232" x2="305" y2="305" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
-          <line x1="478" y1="232" x2="478" y2="305" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
-          <line x1="395" y1="232" x2="395" y2="305" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+          <!-- ============= ХАРАКТЕРНЫЕ ЛИНИИ ============= -->
+          <!-- грань кузова (character line) -->
+          <path d="M 100 268 C 250 250 550 248 740 270" stroke="rgba(255,255,255,.08)" stroke-width="1.2" fill="none"/>
+          <path d="M 100 320 C 250 312 550 312 740 322" stroke="rgba(255,45,122,.18)" stroke-width=".8" fill="none"/>
 
-          <!-- ручки -->
-          <rect x="345" y="265" width="44" height="5" rx="2.5" fill="rgba(255,255,255,.12)" stroke="rgba(255,45,122,.3)" stroke-width=".5"/>
-          <rect x="420" y="265" width="44" height="5" rx="2.5" fill="rgba(255,255,255,.12)" stroke="rgba(255,45,122,.3)" stroke-width=".5"/>
+          <!-- ============= ДВЕРИ ============= -->
+          <line x1="384" y1="200" x2="380" y2="356" stroke="rgba(0,0,0,.45)" stroke-width="1.4"/>
+          <line x1="384" y1="200" x2="380" y2="356" stroke="rgba(255,255,255,.05)" stroke-width=".5"/>
 
-          <!-- характерная линия на боку (chrome strip) -->
-          <path d="M 95 290 C 250 282 550 282 720 290" stroke="rgba(255,255,255,.07)" stroke-width="1.2" fill="none"/>
-          <path d="M 95 240 C 250 232 550 232 720 240" stroke="rgba(255,45,122,.18)" stroke-width=".8" fill="none" opacity=".7"/>
+          <!-- ручки (хром) -->
+          <rect x="288" y="294" width="48" height="5" rx="2.5" fill="rgba(220,225,235,.7)"/>
+          <rect x="288" y="294" width="48" height="2" rx="1" fill="rgba(255,255,255,.4)"/>
+          <rect x="440" y="290" width="48" height="5" rx="2.5" fill="rgba(220,225,235,.7)"/>
+          <rect x="440" y="290" width="48" height="2" rx="1" fill="rgba(255,255,255,.4)"/>
 
-          <!-- ПЕРЕДНЯЯ ОПТИКА -->
-          <path d="M 80 250 L 100 246 C 112 246 122 248 130 252 L 130 264 C 122 268 110 270 96 270 L 80 268 Z"
-                fill="url(#lightFront)" stroke="rgba(255,210,140,.5)" stroke-width=".5"/>
-          <ellipse cx="105" cy="258" rx="14" ry="4" fill="rgba(255,255,210,.85)"/>
+          <!-- ============= ПЕРЕДНЯЯ ОПТИКА ============= -->
+          <!-- корпус фары -->
+          <path d="M 76 244
+                   C 88 238 108 234 128 234
+                   L 156 240
+                   C 162 244 166 250 166 256
+                   L 166 272
+                   C 162 280 152 282 138 282
+                   L 110 280
+                   C 90 278 76 270 76 264 Z"
+                fill="rgba(20,20,28,.9)" stroke="rgba(255,210,120,.45)" stroke-width=".8"/>
+          <!-- "глазница" (свечение) -->
+          <ellipse cx="124" cy="258" rx="32" ry="8" fill="url(#sHeadGlow)"/>
+          <!-- LED-ресничка -->
+          <path d="M 80 238 C 110 234 142 232 166 240" stroke="rgba(255,45,122,.85)" stroke-width="2.6" fill="none" stroke-linecap="round" filter="url(#sLightBlur)"/>
+          <path d="M 80 238 C 110 234 142 232 166 240" stroke="rgba(255,180,210,.95)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <!-- блик-точка света -->
+          <circle cx="118" cy="256" r="4" fill="rgba(255,255,255,1)"/>
+          <ellipse cx="124" cy="258" rx="50" ry="14" fill="url(#sHeadGlow)" opacity=".4" filter="url(#sSoftBlur)"/>
 
-          <!-- решётка -->
-          <path d="M 80 280 L 130 274 L 130 296 L 92 300 C 84 300 80 296 80 290 Z"
-                fill="#0a0a10" stroke="rgba(255,45,122,.3)" stroke-width=".8"/>
-          <line x1="84" y1="284" x2="126" y2="280" stroke="rgba(255,45,122,.25)" stroke-width=".7"/>
-          <line x1="86" y1="289" x2="126" y2="286" stroke="rgba(255,45,122,.25)" stroke-width=".7"/>
-          <line x1="88" y1="294" x2="126" y2="292" stroke="rgba(255,45,122,.25)" stroke-width=".7"/>
+          <!-- ============= РЕШЁТКА ============= -->
+          <path d="M 78 282 L 166 282 L 162 314 L 92 318 C 84 318 78 314 78 308 Z"
+                fill="#0a0a14" stroke="rgba(255,45,122,.4)" stroke-width="1"/>
+          <line x1="82" y1="290" x2="160" y2="288" stroke="rgba(255,45,122,.32)" stroke-width=".8"/>
+          <line x1="84" y1="298" x2="160" y2="296" stroke="rgba(255,45,122,.32)" stroke-width=".8"/>
+          <line x1="86" y1="306" x2="161" y2="304" stroke="rgba(255,45,122,.32)" stroke-width=".8"/>
+          <!-- логотип на решётке -->
+          <circle cx="124" cy="298" r="9" fill="rgba(255,45,122,.18)" stroke="rgba(255,45,122,.7)" stroke-width=".9"/>
+          <text x="124" y="302" font-family="Unbounded" font-size="9" font-weight="800" fill="#ff2d7a" text-anchor="middle">P</text>
 
-          <!-- ЗАДНИЙ ФОНАРЬ -->
-          <path d="M 690 252 L 730 256 L 732 274 L 690 270 Z"
-                fill="rgba(255,80,80,.55)" stroke="rgba(255,80,80,.3)" stroke-width=".5"/>
-          <ellipse cx="710" cy="263" rx="14" ry="4" fill="rgba(255,120,120,.7)"/>
+          <!-- ============= ЗАДНИЙ ФОНАРЬ ============= -->
+          <path d="M 700 250
+                   L 754 250
+                   C 758 252 760 256 760 260
+                   L 760 274
+                   C 760 278 758 282 754 282
+                   L 700 280 Z"
+                fill="rgba(40,12,18,.9)" stroke="rgba(255,80,80,.5)" stroke-width=".8"/>
+          <ellipse cx="728" cy="266" rx="26" ry="6" fill="url(#sRearGlow)"/>
+          <ellipse cx="728" cy="266" rx="40" ry="9" fill="url(#sRearGlow)" opacity=".5" filter="url(#sSoftBlur)"/>
 
-          <!-- задний бампер с выхлопом -->
-          <rect x="700" y="318" width="22" height="6" rx="1" fill="#0a0a10"/>
-          <circle cx="722" cy="321" r="3" fill="#1a1a22" stroke="rgba(255,255,255,.15)" stroke-width=".5"/>
+          <!-- задний бампер с двойным выхлопом -->
+          <ellipse cx="724" cy="354" rx="8" ry="3.5" fill="#0a0a10" stroke="rgba(220,225,235,.4)" stroke-width=".6"/>
+          <ellipse cx="744" cy="354" rx="8" ry="3.5" fill="#0a0a10" stroke="rgba(220,225,235,.4)" stroke-width=".6"/>
 
-          <!-- выпуклость капота (блик) -->
-          <path d="M 130 248 C 200 235 350 218 460 220" stroke="rgba(255,255,255,.1)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <!-- крыша блик -->
-          <path d="M 357 165 C 410 162 442 162 460 165" stroke="rgba(255,255,255,.18)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- зеркало -->
+          <path d="M 322 92 L 308 84 C 302 84 298 88 298 94 L 300 106 L 318 110 Z" fill="#1a1a22" stroke="rgba(255,45,122,.4)" stroke-width=".7"/>
+          <ellipse cx="308" cy="98" rx="6" ry="4" fill="rgba(180,210,240,.5)"/>
 
-          <!-- КОЛЁСНЫЕ АРКИ (затенение под кузовом) -->
-          <ellipse cx="210" cy="320" rx="62" ry="22" fill="#000" opacity=".6"/>
-          <ellipse cx="590" cy="320" rx="62" ry="22" fill="#000" opacity=".6"/>
+          <!-- ============= КОЛЁСНЫЕ АРКИ ============= -->
+          <path d="M 132 360 C 132 318 168 286 210 286 C 252 286 288 318 288 360 L 132 360 Z" fill="#04040a"/>
+          <path d="M 512 360 C 512 318 548 286 590 286 C 632 286 668 318 668 360 L 512 360 Z" fill="#04040a"/>
 
-          <!-- ПЕРЕДНЕЕ КОЛЕСО -->
-          <circle cx="210" cy="370" r="58" fill="#040406"/>
-          <circle cx="210" cy="370" r="54" fill="#0a0a10"/>
-          <circle cx="210" cy="370" r="51" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="2 3"/>
-          <circle cx="210" cy="370" r="40" fill="url(#rimSide)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-          <!-- 5 спиц -->
-          <g stroke="#3a3a45" stroke-width="5" stroke-linecap="round">
-            <line x1="210" y1="370" x2="210" y2="334"/>
-            <line x1="210" y1="370" x2="244" y2="380"/>
-            <line x1="210" y1="370" x2="231" y2="404"/>
-            <line x1="210" y1="370" x2="189" y2="404"/>
-            <line x1="210" y1="370" x2="176" y2="380"/>
+          <!-- ============= ПЕРЕДНЕЕ КОЛЕСО ============= -->
+          <circle cx="210" cy="370" r="68" fill="#020204"/>
+          <circle cx="210" cy="370" r="66" fill="#0a0a10"/>
+          <circle cx="210" cy="370" r="62" fill="none" stroke="rgba(255,255,255,.05)" stroke-width=".8" stroke-dasharray="3 4"/>
+          <circle cx="210" cy="370" r="58" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+          <circle cx="210" cy="370" r="50" fill="url(#sRimDeep)"/>
+          <circle cx="210" cy="370" r="50" fill="url(#sRimRing)"/>
+          <!-- хром по верху диска -->
+          <path d="M 160 370 A 50 50 0 0 1 260 370" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.4"/>
+          <!-- 10 спиц -->
+          <g stroke="#3a3a45" stroke-width="3.4" stroke-linecap="round" fill="none">
+            <line x1="210" y1="370" x2="210" y2="324"/>
+            <line x1="210" y1="370" x2="234" y2="330"/>
+            <line x1="210" y1="370" x2="252" y2="346"/>
+            <line x1="210" y1="370" x2="256" y2="370"/>
+            <line x1="210" y1="370" x2="252" y2="394"/>
+            <line x1="210" y1="370" x2="234" y2="410"/>
+            <line x1="210" y1="370" x2="210" y2="416"/>
+            <line x1="210" y1="370" x2="186" y2="410"/>
+            <line x1="210" y1="370" x2="168" y2="394"/>
+            <line x1="210" y1="370" x2="164" y2="370"/>
+            <line x1="210" y1="370" x2="168" y2="346"/>
+            <line x1="210" y1="370" x2="186" y2="330"/>
           </g>
-          <g stroke="rgba(255,45,122,.45)" stroke-width="1.6" stroke-linecap="round" fill="none">
-            <line x1="210" y1="370" x2="210" y2="334"/>
-            <line x1="210" y1="370" x2="244" y2="380"/>
-            <line x1="210" y1="370" x2="231" y2="404"/>
-            <line x1="210" y1="370" x2="189" y2="404"/>
-            <line x1="210" y1="370" x2="176" y2="380"/>
+          <g stroke="rgba(255,255,255,.2)" stroke-width="1.1" stroke-linecap="round" fill="none">
+            <line x1="210" y1="370" x2="210" y2="326"/>
+            <line x1="210" y1="370" x2="232" y2="332"/>
+            <line x1="210" y1="370" x2="250" y2="348"/>
+            <line x1="210" y1="370" x2="254" y2="370"/>
+            <line x1="210" y1="370" x2="250" y2="392"/>
+            <line x1="210" y1="370" x2="232" y2="408"/>
+            <line x1="210" y1="370" x2="210" y2="414"/>
+            <line x1="210" y1="370" x2="188" y2="408"/>
+            <line x1="210" y1="370" x2="170" y2="392"/>
+            <line x1="210" y1="370" x2="166" y2="370"/>
+            <line x1="210" y1="370" x2="170" y2="348"/>
+            <line x1="210" y1="370" x2="188" y2="332"/>
           </g>
-          <circle cx="210" cy="370" r="11" fill="#1a1a22" stroke="rgba(255,45,122,.5)" stroke-width="1"/>
-          <circle cx="210" cy="370" r="3.5" fill="rgba(255,45,122,.9)"/>
+          <!-- розовая обводка -->
+          <g stroke="rgba(255,45,122,.5)" stroke-width=".8" stroke-linecap="round" fill="none">
+            <line x1="210" y1="370" x2="210" y2="328"/>
+            <line x1="210" y1="370" x2="230" y2="334"/>
+            <line x1="210" y1="370" x2="248" y2="350"/>
+            <line x1="210" y1="370" x2="252" y2="370"/>
+            <line x1="210" y1="370" x2="248" y2="390"/>
+            <line x1="210" y1="370" x2="230" y2="406"/>
+            <line x1="210" y1="370" x2="210" y2="412"/>
+            <line x1="210" y1="370" x2="190" y2="406"/>
+            <line x1="210" y1="370" x2="172" y2="390"/>
+            <line x1="210" y1="370" x2="168" y2="370"/>
+            <line x1="210" y1="370" x2="172" y2="350"/>
+            <line x1="210" y1="370" x2="190" y2="334"/>
+          </g>
+          <!-- ступица -->
+          <circle cx="210" cy="370" r="13" fill="#1a1a26" stroke="rgba(255,255,255,.18)" stroke-width=".8"/>
+          <circle cx="210" cy="370" r="7" fill="#0a0a14" stroke="rgba(255,45,122,.6)" stroke-width=".8"/>
+          <circle cx="210" cy="370" r="3" fill="rgba(255,45,122,1)"/>
+          <circle cx="207" cy="367" r="1.8" fill="rgba(255,255,255,.7)"/>
 
-          <!-- ЗАДНЕЕ КОЛЕСО -->
-          <circle cx="590" cy="370" r="58" fill="#040406"/>
-          <circle cx="590" cy="370" r="54" fill="#0a0a10"/>
-          <circle cx="590" cy="370" r="51" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="2 3"/>
-          <circle cx="590" cy="370" r="40" fill="url(#rimSide)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-          <g stroke="#3a3a45" stroke-width="5" stroke-linecap="round">
-            <line x1="590" y1="370" x2="590" y2="334"/>
-            <line x1="590" y1="370" x2="624" y2="380"/>
-            <line x1="590" y1="370" x2="611" y2="404"/>
-            <line x1="590" y1="370" x2="569" y2="404"/>
-            <line x1="590" y1="370" x2="556" y2="380"/>
+          <!-- ============= ЗАДНЕЕ КОЛЕСО ============= -->
+          <circle cx="590" cy="370" r="68" fill="#020204"/>
+          <circle cx="590" cy="370" r="66" fill="#0a0a10"/>
+          <circle cx="590" cy="370" r="62" fill="none" stroke="rgba(255,255,255,.05)" stroke-width=".8" stroke-dasharray="3 4"/>
+          <circle cx="590" cy="370" r="58" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+          <circle cx="590" cy="370" r="50" fill="url(#sRimDeep)"/>
+          <circle cx="590" cy="370" r="50" fill="url(#sRimRing)"/>
+          <path d="M 540 370 A 50 50 0 0 1 640 370" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.4"/>
+          <g stroke="#3a3a45" stroke-width="3.4" stroke-linecap="round" fill="none">
+            <line x1="590" y1="370" x2="590" y2="324"/>
+            <line x1="590" y1="370" x2="614" y2="330"/>
+            <line x1="590" y1="370" x2="632" y2="346"/>
+            <line x1="590" y1="370" x2="636" y2="370"/>
+            <line x1="590" y1="370" x2="632" y2="394"/>
+            <line x1="590" y1="370" x2="614" y2="410"/>
+            <line x1="590" y1="370" x2="590" y2="416"/>
+            <line x1="590" y1="370" x2="566" y2="410"/>
+            <line x1="590" y1="370" x2="548" y2="394"/>
+            <line x1="590" y1="370" x2="544" y2="370"/>
+            <line x1="590" y1="370" x2="548" y2="346"/>
+            <line x1="590" y1="370" x2="566" y2="330"/>
           </g>
-          <g stroke="rgba(255,45,122,.45)" stroke-width="1.6" stroke-linecap="round" fill="none">
-            <line x1="590" y1="370" x2="590" y2="334"/>
-            <line x1="590" y1="370" x2="624" y2="380"/>
-            <line x1="590" y1="370" x2="611" y2="404"/>
-            <line x1="590" y1="370" x2="569" y2="404"/>
-            <line x1="590" y1="370" x2="556" y2="380"/>
+          <g stroke="rgba(255,255,255,.2)" stroke-width="1.1" stroke-linecap="round" fill="none">
+            <line x1="590" y1="370" x2="590" y2="326"/>
+            <line x1="590" y1="370" x2="612" y2="332"/>
+            <line x1="590" y1="370" x2="630" y2="348"/>
+            <line x1="590" y1="370" x2="634" y2="370"/>
+            <line x1="590" y1="370" x2="630" y2="392"/>
+            <line x1="590" y1="370" x2="612" y2="408"/>
+            <line x1="590" y1="370" x2="590" y2="414"/>
+            <line x1="590" y1="370" x2="568" y2="408"/>
+            <line x1="590" y1="370" x2="550" y2="392"/>
+            <line x1="590" y1="370" x2="546" y2="370"/>
+            <line x1="590" y1="370" x2="550" y2="348"/>
+            <line x1="590" y1="370" x2="568" y2="332"/>
           </g>
-          <circle cx="590" cy="370" r="11" fill="#1a1a22" stroke="rgba(255,45,122,.5)" stroke-width="1"/>
-          <circle cx="590" cy="370" r="3.5" fill="rgba(255,45,122,.9)"/>
+          <g stroke="rgba(255,45,122,.5)" stroke-width=".8" stroke-linecap="round" fill="none">
+            <line x1="590" y1="370" x2="590" y2="328"/>
+            <line x1="590" y1="370" x2="610" y2="334"/>
+            <line x1="590" y1="370" x2="628" y2="350"/>
+            <line x1="590" y1="370" x2="632" y2="370"/>
+            <line x1="590" y1="370" x2="628" y2="390"/>
+            <line x1="590" y1="370" x2="610" y2="406"/>
+            <line x1="590" y1="370" x2="590" y2="412"/>
+            <line x1="590" y1="370" x2="570" y2="406"/>
+            <line x1="590" y1="370" x2="552" y2="390"/>
+            <line x1="590" y1="370" x2="548" y2="370"/>
+            <line x1="590" y1="370" x2="552" y2="350"/>
+            <line x1="590" y1="370" x2="570" y2="334"/>
+          </g>
+          <circle cx="590" cy="370" r="13" fill="#1a1a26" stroke="rgba(255,255,255,.18)" stroke-width=".8"/>
+          <circle cx="590" cy="370" r="7" fill="#0a0a14" stroke="rgba(255,45,122,.6)" stroke-width=".8"/>
+          <circle cx="590" cy="370" r="3" fill="rgba(255,45,122,1)"/>
+          <circle cx="587" cy="367" r="1.8" fill="rgba(255,255,255,.7)"/>
 
           <!-- ХОТСПОТЫ -->
           <g class="hotspot" data-zone="engine">
